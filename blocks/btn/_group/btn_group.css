@@ -1,0 +1,22 @@
+.btn_group {
+    width: 22px;
+    height: 19px;
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+
+.btn_group:disabled {
+    fill: #000;
+    cursor: pointer;
+}
+
+.btn_group:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.btn_group:active {
+    background-image: url(../../../images/likeblack.svg);
+    opacity: 1;
+    cursor: pointer;
+}

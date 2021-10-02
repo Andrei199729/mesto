@@ -1,0 +1,12 @@
+.btn__rectangle {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (max-width: 615px) {
+    /* btn */
+    .btn__rectangle {
+        width: 18px;
+        height: 18px;
+    }
+}

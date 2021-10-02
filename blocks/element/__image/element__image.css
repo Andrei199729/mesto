@@ -1,0 +1,19 @@
+.element__image {
+    display: block;
+    max-width: 282px;
+    min-height: min(calc(100vw/1.6), 340px);
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 899px) {
+    .element__image {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .element__image {
+        min-height: 282px;
+    }
+}

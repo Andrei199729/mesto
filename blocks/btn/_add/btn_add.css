@@ -1,0 +1,21 @@
+.btn_add {
+    box-sizing: border-box;
+    width: 150px;
+    min-height: 50px;
+    border: 2px solid #FFFFFF;
+    opacity: 1;
+    transition: opacity .2s linear;
+    position: relative;
+}
+
+.btn_add:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 899px) {
+    .btn_add {
+        width: 100%;
+        margin-bottom: 36px;
+    }
+}

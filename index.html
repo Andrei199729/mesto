@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+    <!-- Header -->
+    <header class="header">
+        <img class="header__logo" src="./images/mestologo.svg" alt="Место">
+    </header>
+    <!-- /Header -->
+    <main class="content">
+        <!-- Profile -->
+        <section class="profile">
+            <div class="profile__columns">
+                <img class="profile__avatar" src="./images/jakkusto.svg" alt="Жак-Ив Кусто">
+                <div class="profile__info">
+                    <div class="profile__column">
+                        <h1 class="profile__title" id="name">Жак-Ив Кусто</h1>
+                        <p class="profile__subtitle">Исследователь океана</p>
+                    </div>
+                    <button class="btn btn_edit"><img class="btn__rectangle" src="./images/editbutton.svg"
+                            alt="Редактирование"></button>
+                </div>
+            </div>
+            <button class="btn btn_add"><img class="btn__plus" src="./images/plus.svg" alt="Добавить"></button>
+        </section>
+        <!-- /Profile -->
+        <!-- Elements -->
+        <section class="elements">
+            <article class="element">
+                <img class="element__image" src="./images/athens.jpg" alt="Афины, Греция">
+                <div class="element__text">
+                    <h2 class="element__title">Афины, Греция</h2>
+                    <button class="btn btn_group"><img class="btn__like" src="./images/like.svg"
+                            alt="Нравится"></button>
+                </div>
+            </article>
+            <article class="element">
+                <img class="element__image" src="./images/autumn.jpg" alt="Осень">
+                <div class="element__text">
+                    <h2 class="element__title">Осень</h2>
+                    <button class="btn btn_group"><img class="btn__like" src="./images/like.svg"
+                            alt="Нравится"></button>
+                </div>
+            </article>
+            <article class="element">
+                <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
+                <div class="element__text">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="btn btn_group"><img class="btn__like" src="./images/like.svg"
+                            alt="Нравится"></button>
+                </div>
+            </article>
+            <article class="element">
+                <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+                <div class="element__text">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="btn btn_group"><img class="btn__like" src="./images/like.svg"
+                            alt="Нравится"></button>
+                </div>
+            </article>
+            <article class="element">
+                <img class="element__image" src="./images/karachay.jpg" alt="Карачаево-Черкесская Республика">
+                <div class="element__text">
+                    <h2 class="element__title element__title_ellipsis">Карачаево-Черкесская Республика</h2>
+                    <button class="btn btn_group"><img class="btn__like" src="./images/like.svg"
+                            alt="Нравится"></button>
+                </div>
+            </article>
+            <article class="element">
+                <img class="element__image" src="./images/newyork.jpg" alt="Нью-Йорк">
+                <div class="element__text">
+                    <h2 class="element__title">Нью-Йорк</h2>
+                    <button class="btn btn_group"><img class="btn__like" src="./images/like.svg"
+                            alt="Нравится"></button>
+                </div>
+            </article>
+        </section>
+        <!-- /Elements -->
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <h2 class="footer__copy">&copy; 2020 Mesto Russia</h2>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- Modal -->
+    <div class="popup popup_opened">
+        <div class="popup__container">
+            <button class="btn btn_close" type="button" data-close>
+                <img class="btn__icon" src="./images/closeicon.svg" alt="Закрыть">
+            </button>
+            <form class="form" action="/" method="POST">
+                <h2 class="form__title">Редактировать профиль</h2>
+                <div class="form__column">
+                    <div class="form__line">
+                        <input class="form__input form__input_name" type="text" value="Жак-Ив Кусто">
+                    </div>
+                    <div class="form__line">
+                        <input class="form__input form__input_doer" type="text" value="Исследователь океана">
+                    </div>
+                    <button class="btn btn_save">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

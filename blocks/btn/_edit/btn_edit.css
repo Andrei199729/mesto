@@ -1,0 +1,19 @@
+.btn_edit {
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    transition: opacity .2s linear;
+}
+
+.btn_edit:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 615px) {
+    .btn_edit {
+        width: 18px;
+        height: 18px;
+    }
+}
