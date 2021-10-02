@@ -23,7 +23,3 @@ save.addEventListener('click', function(e) {
     profileSubtitle.textContent = inputDoer.value;
     popupOpened.style.display = "none";
 });
-
-btnGroup.addEventListener('click', function() {
-
-})
