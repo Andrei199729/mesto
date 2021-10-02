@@ -1,7 +1,7 @@
 let popupOpened = document.querySelector('.popup_opened');
 let btnEdit = document.querySelector('.btn_edit');
 let btnAdd = document.querySelector('.btn_add');
-let btnGroup = document.querySelector('.btn_group');
+
 let btnClose = document.querySelector('.btn_close');
 let save = document.querySelector('.btn_save');
 let profileTitle = document.querySelector('.profile__title');
