@@ -1,6 +1,6 @@
 # Проект: сервис Mesto
 
-<!-- * Ссылка на страничку https://andrei199729.github.io/russian-travel/index.html -->
+* Ссылка на страничку https://andrei199729.github.io/mesto/index.html
 
 ## Описание
 
