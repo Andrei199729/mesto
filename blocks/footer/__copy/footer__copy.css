@@ -11,6 +11,7 @@
 @media screen and (max-width: 899px) {
     .footer__copy {
         text-align: center;
+        padding: 0 19px;
     }
 }
 

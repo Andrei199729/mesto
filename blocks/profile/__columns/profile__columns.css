@@ -1,6 +1,7 @@
 .profile__columns {
     max-width: 100%;
     display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 899px) {
@@ -11,8 +12,7 @@
 
 @media screen and (max-width: 615px) {
     .profile__columns {
-        margin-bottom: 36px;
+        margin-bottom: 32px;
         flex-direction: column;
-        align-items: center;
     }
 }

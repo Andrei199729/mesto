@@ -2,7 +2,7 @@
     box-sizing: border-box;
     display: block;
     max-width: 282px;
-    min-height: min(calc(100vw/1.6), 361px);
+    max-height: 361px;
     background-color: #fff;
     border-radius: 13px 13px 10px 10px;
 }

@@ -1,5 +1,5 @@
-.btn_save {
-    margin-top: 48px;
+.form__btn {
+    margin-top: 18px;
     max-width: 358px;
     min-height: 50px;
     background-color: #000000;
@@ -9,20 +9,22 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
+    padding: 0;
+    border: none;
     text-align: center;
     color: #FFFFFF;
     opacity: 1;
     transition: opacity .3s linear;
 }
 
-.btn_save:hover {
+.form__btn:hover {
     opacity: 0.8;
     cursor: pointer;
 }
 
 @media screen and (max-width: 615px) {
-    .btn_save {
-        margin-top: 45px;
+    .form__btn {
+        margin-top: 15px;
         max-width: 100%;
         min-height: 46px;
         font-size: 14px;
