@@ -8,6 +8,8 @@
     transition: opacity .2s linear;
     padding: 0;
     border: 0;
+    align-self: flex-start;
+    margin-top: 14px;
 }
 
 .profile__edit-btn:hover {
@@ -17,6 +19,7 @@
 
 @media screen and (max-width: 615px) {
     .profile__edit-btn {
+        margin-top: 8px;
         background-size: 18px 18px;
         width: 18px;
         height: 18px;

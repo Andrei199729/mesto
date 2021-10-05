@@ -1,7 +1,6 @@
 .profile__columns {
     max-width: 100%;
     display: flex;
-    align-items: baseline;
 }
 
 @media screen and (max-width: 899px) {
