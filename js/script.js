@@ -22,7 +22,7 @@ function openPopup() {
 }
 popupOpenBtn.addEventListener('click', openPopup);
 
-// Form submit
+// Form submit отправляет форму
 
 function submitForm(event) {
     event.preventDefault();
