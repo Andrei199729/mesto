@@ -1,4 +1,4 @@
-.profile__add {
+.profile__add-btn {
     box-sizing: border-box;
     background: url(../../../images/plus.svg);
     background-repeat: no-repeat;
@@ -12,16 +12,24 @@
     position: relative;
     border-radius: 2px;
     padding: 0;
+    margin-left: auto;
 }
 
-.profile__add:hover {
+.profile__add-btn:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media screen and (max-width: 899px) {
-    .profile__add {
+    .profile__add-btn {
         width: 100%;
         margin-bottom: 36px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .profile__add-btn {
+        background-size: 16px 16px;
     }
 }

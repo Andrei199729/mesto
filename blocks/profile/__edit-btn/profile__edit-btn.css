@@ -1,4 +1,4 @@
-.profile__btn {
+.profile__edit-btn {
     box-sizing: border-box;
     background: url(../../../images/editbutton.svg);
     background-size: 24px 24px;
@@ -10,13 +10,13 @@
     border: 0;
 }
 
-.profile__btn:hover {
+.profile__edit-btn:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media screen and (max-width: 615px) {
-    .profile__btn {
+    .profile__edit-btn {
         background-size: 18px 18px;
         width: 18px;
         height: 18px;

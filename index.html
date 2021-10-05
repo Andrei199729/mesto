@@ -17,17 +17,15 @@
     <main class="content">
         <!-- Profile -->
         <section class="profile">
+            <img class="profile__avatar" src="./images/jakkusto.jpg" alt="Аватар пользователя">
             <div class="profile__columns">
-                <img class="profile__avatar" src="./images/jakkusto.jpg" alt="Жак-Ив Кусто">
                 <div class="profile__info">
-                    <div class="profile__column">
-                        <h1 class="profile__title">Жак-Ив Кусто</h1>
-                        <p class="profile__subtitle">Исследователь океана</p>
-                    </div>
-                    <button class="profile__btn profile__btn_edit"></button>
+                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <p class="profile__subtitle">Исследователь океана</p>
                 </div>
+                <button class="profile__edit-btn profile__btn_form_edit" type="button"></button>
             </div>
-            <button class="profile__add profile__add_btn"></button>
+            <button class="profile__add-btn profile__btn_card_add" type="button"></button>
         </section>
         <!-- /Profile -->
         <!-- Elements -->
@@ -36,42 +34,42 @@
                 <img class="element__image" src="./images/athens.jpg" alt="Афины, Греция">
                 <div class="element__text">
                     <h2 class="element__title">Афины, Греция</h2>
-                    <button class="element__btn element__btn_group"></button>
+                    <button class="element__btn" type="button"></button>
                 </div>
             </article>
             <article class="element">
                 <img class="element__image" src="./images/autumn.jpg" alt="Осень">
                 <div class="element__text">
                     <h2 class="element__title">Осень</h2>
-                    <button class="element__btn element__btn_group"></button>
+                    <button class="element__btn" type="button"></button>
                 </div>
             </article>
             <article class="element">
                 <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
                 <div class="element__text">
                     <h2 class="element__title">Домбай</h2>
-                    <button class="element__btn element__btn_group"></button>
+                    <button class="element__btn" type="button"></button>
                 </div>
             </article>
             <article class="element">
                 <img class="element__image" src="./images/elbrus.jpg" alt="Гора Эльбрус">
                 <div class="element__text">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__btn element__btn_group"></button>
+                    <button class="element__btn" type="button"></button>
                 </div>
             </article>
             <article class="element">
                 <img class="element__image" src="./images/karachay.jpg" alt="Карачаево-Черкесская Республика">
                 <div class="element__text">
                     <h2 class="element__title">Карачаево-Черкесская Республика</h2>
-                    <button class="element__btn element__btn_group"></button>
+                    <button class="element__btn" type="button"></button>
                 </div>
             </article>
             <article class="element">
                 <img class="element__image" src="./images/newyork.jpg" alt="Нью-Йорк">
                 <div class="element__text">
                     <h2 class="element__title">Нью-Йорк</h2>
-                    <button class="element__btn element__btn_group"></button>
+                    <button class="element__btn" type="button"></button>
                 </div>
             </article>
         </section>
@@ -86,13 +84,13 @@
     <!-- Modal -->
     <div class="popup">
         <div class="popup__container">
-            <button class="popup__btn popup__btn_close"></button>
-            <form class="form" action="/" method="POST" name="form">
+            <button class="popup__close-btn" type="button"></button>
+            <form class="form" action="/" method="POST" name="formprofile">
                 <h2 class="form__title">Редактировать профиль</h2>
                 <div class="form__column">
-                    <input class="form__input form__input_name" type="text" name="name" placeholder="Жак-Ив Кусто" value="Жак-Ив Кусто" required>
-                    <input class="form__input form__input_doer" type="text" name="doer" placeholder="Исследователь океана" value="Исследователь океана" required>
-                    <button class="form__btn form__btn_save" type="submit">Сохранить</button>
+                    <input class="form__input" type="text" name="name" placeholder="Введите ваше имя" value="Жак-Ив Кусто" required>
+                    <input class="form__input" type="text" name="doer" placeholder="Введите вашу профессию" value="Исследователь океана" required>
+                    <button class="form__btn" type="submit">Сохранить</button>
                 </div>
             </form>
         </div>
