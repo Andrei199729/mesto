@@ -1,6 +1,6 @@
 .element__image {
     display: block;
-    max-width: 282px;
+    width: 282px;
     height: 282px;
     border-radius: 10px 10px 0 0;
     object-fit: cover;
@@ -8,7 +8,6 @@
 
 @media screen and (max-width: 899px) {
     .element__image {
-        max-width: 100%;
         width: 100%;
     }
 }

@@ -10,3 +10,9 @@
     border-radius: 10px;
     position: relative;
 }
+
+@media screen and (max-width: 615px) {
+    .popup__container {
+        max-height: 322px;
+    }
+}

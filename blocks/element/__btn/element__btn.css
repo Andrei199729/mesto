@@ -19,9 +19,3 @@
     opacity: 0.5;
     cursor: pointer;
 }
-
-.element__btn:active {
-    background-image: url(../../../images/likeblack.svg);
-    opacity: 1;
-    cursor: pointer;
-}
