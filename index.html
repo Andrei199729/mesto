@@ -42,7 +42,7 @@
     <!-- Modal -->
     <div class="popup popup_edit-profile">
         <div class="popup__container">
-            <button class="popup__close-btn" type="button"></button>
+            <button class="popup__close-btn popup__close-btn-edit" type="button"></button>
             <form class="form form__edit" action="/" method="POST" name="formprofile">
                 <h2 class="form__title">Редактировать профиль</h2>
                 <div class="form__column">
@@ -56,7 +56,7 @@
     <!-- Modal add -->
     <div class="popup popup_add-card">
         <div class="popup__container">
-            <button class="popup__close-btn" type="button"></button>
+            <button class="popup__close-btn popup__close-btn-add" type="button"></button>
             <form class="form form__card" action="/" method="GET" name="formcard">
                 <h2 class="form__title">Новое место</h2>
                 <div class="form__column">
@@ -67,7 +67,20 @@
             </form>
         </div>
     </div>
-    <template id="element-template">
+    <!-- View photo -->
+    <div class="popup popup_view-image">
+        <div class="view-image">
+            <figure class="view-image__figure">
+                <button class="view-image__close-btn" type="button"></button>
+                <div>
+                    <img class="view-image__picture" src="" alt="">
+                    <figcaption class="view-image__caption"></figcaption>
+                </div>
+            </figure>
+        </div>
+    </div>
+    <!-- /View photo -->
+    <template id="card-template">
         <article class="element">
             <img class="element__image" src="" alt="">
             <button class="element__delete"></button>
@@ -76,18 +89,8 @@
                 <button class="element__btn" type="button"></button>
             </div>
         </article>
-        <div class="popup popup_add-image">
-            <div class="popup__container">
-                <button class="popup__close-btn" type="button"></button>
-                <figure class="popup__figure">
-                    <img class="popup__image" src="" alt="">
-                    <figcaption class="popup__caption"></figcaption>
-                </figure>
-            </div>
-        </div>
     </template>
-    <script src="./js/script.js ">
-    </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
