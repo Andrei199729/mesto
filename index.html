@@ -43,7 +43,7 @@
     <div class="popup popup_edit-profile">
         <div class="popup__container">
             <button class="popup__close-btn popup__close-btn-edit" type="button"></button>
-            <form class="form form__edit" action="/" method="POST" name="formprofile">
+            <form class="form form_edit-profile" action="/" method="POST" name="formprofile">
                 <h2 class="form__title">Редактировать профиль</h2>
                 <div class="form__column">
                     <input class="form__input form__input_type_name" type="text" name="name" placeholder="Введите ваше имя" required>
@@ -57,7 +57,7 @@
     <div class="popup popup_add-card">
         <div class="popup__container">
             <button class="popup__close-btn popup__close-btn-add" type="button"></button>
-            <form class="form form__card" action="/" method="GET" name="formcard">
+            <form class="form form_card-add" action="/" method="GET" name="formcard">
                 <h2 class="form__title">Новое место</h2>
                 <div class="form__column">
                     <input class="form__input form__input_card_name" type="text" name="name_card" placeholder="Название" required>
@@ -72,10 +72,8 @@
         <div class="view-image">
             <figure class="view-image__figure">
                 <button class="view-image__close-btn" type="button"></button>
-                <div>
-                    <img class="view-image__picture" src="" alt="">
-                    <figcaption class="view-image__caption"></figcaption>
-                </div>
+                <img class="view-image__picture" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Архыз">
+                <figcaption class="view-image__caption"></figcaption>
             </figure>
         </div>
     </div>

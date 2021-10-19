@@ -1,7 +1,6 @@
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCard = document.querySelector('.popup_add-card');
 const popupViewImage = document.querySelector('.popup_view-image');
-const body = document.querySelector('.page');
 const popupEditProfileBtn = document.querySelector('.profile__edit-btn');
 const popupAddCardBtn = document.querySelector('.profile__add-card-btn');
 const popupCloseBtnEdit = document.querySelector('.popup__close-btn-edit');
@@ -9,15 +8,15 @@ const popupCloseAddCard = document.querySelector('.popup__close-btn-add');
 const popupCloseViewImageBtn = document.querySelector('.view-image__close-btn');
 const nameInput = document.querySelector('.form__input_type_name');
 const jobInput = document.querySelector('.form__input_type_job');
-const formEdit = document.querySelector('.form__edit');
-const formCard = document.querySelector('.form__card');
+const formEdit = document.querySelector('.form_edit-profile');
+const formCard = document.querySelector('.form_card-add');
 const cardNameInput = document.querySelector('.form__input_card_name');
 const linkInput = document.querySelector('.form__input_link_picture');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const elements = document.querySelector('.elements');
 const cardTemplate = document.querySelector('#card-template').content;
-
+// При загрузке плавное открытие и закрытие
 window.addEventListener('load', () => {
     document.querySelectorAll('.popup').forEach((popup) => popup.classList.add('popup_transition'));
 });
