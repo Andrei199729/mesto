@@ -62,6 +62,5 @@
 
 @import url(../blocks/view-image/view-image.css);
 @import url(../blocks/view-image/__figure/view-image__figure.css);
-@import url(../blocks/view-image/__close-btn/view-image__close-btn.css);
 @import url(../blocks/view-image/__picture/view-image__picture.css);
 @import url(../blocks/view-image/__caption/view-image__caption.css);

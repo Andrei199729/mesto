@@ -5,7 +5,7 @@ const popupEditProfileBtn = document.querySelector('.profile__edit-btn');
 const popupAddCardBtn = document.querySelector('.profile__add-card-btn');
 const popupCloseBtnEdit = document.querySelector('.popup__close-btn-edit');
 const popupCloseAddCard = document.querySelector('.popup__close-btn-add');
-const popupCloseViewImageBtn = document.querySelector('.view-image__close-btn');
+const popupCloseViewImageBtn = document.querySelector('.popup__close-btn_view-image');
 const nameInput = document.querySelector('.form__input_type_name');
 const jobInput = document.querySelector('.form__input_type_job');
 const formEdit = document.querySelector('.form_edit-profile');
@@ -16,6 +16,8 @@ const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const elements = document.querySelector('.elements');
 const cardTemplate = document.querySelector('#card-template').content;
+const viewImage = document.querySelector('.view-image__picture');
+const viewCaption = document.querySelector('.view-image__caption');
 // При загрузке плавное открытие и закрытие
 window.addEventListener('load', () => {
     document.querySelectorAll('.popup').forEach((popup) => popup.classList.add('popup_transition'));
@@ -28,7 +30,7 @@ function closePopup(popup) {
 
 // Закрытие popup увеличенных изображений
 function closePopupViewImage() {
-    popupViewImage.classList.remove('popup_view-image_opened');
+    closePopup(popupViewImage);
 }
 popupCloseViewImageBtn.addEventListener('click', closePopupViewImage);
 
@@ -65,9 +67,7 @@ popupAddCardBtn.addEventListener('click', openPopupAddCard);
 
 // Открытие popup увеличенных изображений
 function openViewImage(src, alt) {
-    popupViewImage.classList.add('popup_view-image_opened');
-    const viewImage = document.querySelector('.view-image__picture');
-    const viewCaption = document.querySelector('.view-image__caption');
+    openPopup(popupViewImage);
     viewImage.src = src;
     viewImage.alt = alt;
     viewCaption.textContent = alt;
@@ -119,8 +119,9 @@ const initialCards = [{
 // Добавление карточек, удаление, лайк, открытие карточек
 function createCard(item) {
     const element = cardTemplate.querySelector('.element').cloneNode(true);
-    element.querySelector('.element__image').src = item.link;
-    element.querySelector('.element__image').alt = item.name;
+    const cardImage = element.querySelector('.element__image');
+    cardImage.src = item.link;
+    cardImage.alt = item.name;
     element.querySelector('.element__title').textContent = item.name;
     element.querySelector('.element__delete').addEventListener('click', function() {
         element.remove();
@@ -128,12 +129,9 @@ function createCard(item) {
     element.querySelector('.element__btn').addEventListener('click', function(evt) {
         evt.target.classList.toggle('element__btn_like_active');
     });
-    element.querySelector('.element__image').addEventListener('click', function(evt) {
+    cardImage.addEventListener('click', function(evt) {
         evt.preventDefault();
-        const elementCard = evt.target.closest('.element');
-        const elementImageSrc = elementCard.querySelector('.element__image').src;
-        const elementmageAlt = elementCard.querySelector('.element__image').alt;
-        openViewImage(elementImageSrc, elementmageAlt);
+        openViewImage(item.link, item.name);
     });
     return element;
 }
