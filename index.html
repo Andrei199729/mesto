@@ -46,9 +46,11 @@
             <form class="form form_edit-profile" action="/" method="POST" name="formprofile">
                 <h2 class="form__title">Редактировать профиль</h2>
                 <div class="form__column">
-                    <input class="form__input form__input_type_name" type="text" name="name" placeholder="Введите ваше имя" required>
-                    <input class="form__input form__input_type_job" type="text" name="job" placeholder="Введите вашу профессию" required>
-                    <button class="form__btn" type="submit">Сохранить</button>
+                    <input class="form__input form__input_type_name" id="name" type="text" name="nametype" placeholder="Введите ваше имя" minlength="2" maxlength="40" required>
+                    <span class="error" id="name-error"></span>
+                    <input class=" form__input form__input_type_job" type="text" id="job" name="job" placeholder="Введите вашу профессию" minlength="2" maxlength="200" required>
+                    <span class="error error_below" id="job-error"></span>
+                    <button class="form__btn form__btn-close" type="submit">Сохранить</button>
                 </div>
             </form>
         </div>
@@ -60,8 +62,10 @@
             <form class="form form_card-add" action="/" method="GET" name="formcard">
                 <h2 class="form__title">Новое место</h2>
                 <div class="form__column">
-                    <input class="form__input form__input_card_name" type="text" name="name_card" placeholder="Название" required>
-                    <input class="form__input form__input_link_picture" type="text" name="link_picture" placeholder="Ссылка на картинку" required>
+                    <input class="form__input form__input_card_name" type="text" id="card" name="card" placeholder="Название" minlength="2" maxlength="30" required>
+                    <span class="error" id="card-error"></span>
+                    <input class="form__input form__input_link_picture" type="url" id="link" name="link" placeholder="Ссылка на картинку" required>
+                    <span class="error error_below" id="link-error"></span>
                     <button class="form__btn" type="submit">Создать</button>
                 </div>
             </form>
@@ -69,13 +73,11 @@
     </div>
     <!-- View photo -->
     <div class="popup popup_view-image">
-        <div class="view-image">
-            <figure class="view-image__figure">
-                <button class="popup__close-btn popup__close-btn_view-image" type="button"></button>
-                <img class="view-image__picture" src="/" alt="/">
-                <figcaption class="view-image__caption"></figcaption>
-            </figure>
-        </div>
+        <figure class="view-image">
+            <button class="popup__close-btn popup__close-btn_view-image" type="button"></button>
+            <img class="view-image__picture" src="/" alt="/">
+            <figcaption class="view-image__caption"></figcaption>
+        </figure>
     </div>
     <!-- /View photo -->
     <template id="card-template">
@@ -88,6 +90,7 @@
             </div>
         </article>
     </template>
+    <script src="./js/validation.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
