@@ -19,13 +19,15 @@ const jobInput = formEdit.elements.job;
 const formCard = document.forms.formcard;
 const cardNameInput = formCard.elements.card;
 const linkInput = formCard.elements.link;
-
+const btn = document.querySelector('.form__btn-close');
+const closeBtnCard = document.querySelector('.form__btn-close-card');
 // При загрузке плавное открытие и закрытие
 window.addEventListener('load', () => {
     document.querySelectorAll('.popup').forEach((popup) => popup.classList.add('popup_transition'));
 });
 
 // Закрытие оверлей
+
 function closeWindowPopup(evt) {
     popups.forEach((popup) => {
         if (evt.target == popup) {
@@ -33,21 +35,21 @@ function closeWindowPopup(evt) {
         }
     });
 }
-window.addEventListener('click', closeWindowPopup);
 
 // Закрытие нажатием на Esc
 function closeEscPopup(evt) {
-    if (evt.keyCode == 27) {
-        popups.forEach((popup) => {
+    if (evt.key == 'Escape') {
+        popups.filter((popup) => popup.classList.contains('popup_opened')).forEach(popup => {
             closePopup(popup);
         });
-    }
+    };
 }
-window.addEventListener('keydown', closeEscPopup);
 
 // Закрытие popup
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    window.removeEventListener('click', closeWindowPopup);
+    window.removeEventListener('keydown', closeEscPopup);
 }
 
 // Закрытие popup увеличенных изображений
@@ -72,6 +74,8 @@ popupCloseAddCard.addEventListener('click', closePopupAddCard);
 // Открытие popup
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    window.addEventListener('click', closeWindowPopup);
+    window.addEventListener('keydown', closeEscPopup);
 }
 
 // Открытие popup редактирования профиля
@@ -79,6 +83,9 @@ function openEditprofile() {
     openPopup(popupEditProfile);
     nameInput.value = profileTitle.textContent;
     jobInput.value = profileSubtitle.textContent;
+    btn.classList.remove('popup__button_disabled');
+    btn.disabled = false;
+    hideErrors(popupEditProfile);
 }
 popupEditProfileBtn.addEventListener('click', openEditprofile);
 
@@ -113,6 +120,8 @@ function addCardSubmit(evt) {
     appendCard(card);
     closePopup(popupAddCard);
     evt.target.reset();
+    closeBtnCard.disabled = true;
+    closeBtnCard.classList.add('popup__button_disabled');
 }
 formCard.addEventListener('submit', addCardSubmit);
 
@@ -165,7 +174,6 @@ function appendCard(item) {
 initialCards.forEach(appendCard);
 
 // Валидация
-
 const config = {
     formSelector: '.form',
     inputSelector: '.form__input',
@@ -176,4 +184,3 @@ const config = {
 };
 
 enableValidation(config);
-formEdit.addEventListener('submit', validInput(config));

@@ -9,15 +9,15 @@ function setFormListener(form, config) {
     form.addEventListener('submit', handleSubmit);
     form.addEventListener('input', () => setSubmitButtonState(form, config));
     const inputs = [...form.querySelectorAll(config.inputSelector)];
+    const button = form.querySelector(config.submitButtonSelector);
     inputs.forEach((inputElement) => {
         inputElement.addEventListener('input', () => handleFieldValidation(inputElement, form, config));
     });
-    setSubmitButtonState(form, config);
+    setSubmitButtonState(form, config, button);
 }
 
 // Проверка submit, если input валидны или нет.
-function setSubmitButtonState(form, config) {
-    const button = form.querySelector(config.submitButtonSelector);
+function setSubmitButtonState(form, config, button) {
     button.disabled = !form.checkValidity();
     button.classList.toggle(config.inactiveButtonClass, !form.checkValidity())
 }
@@ -43,24 +43,16 @@ function showError(input, form, config) {
     errorElement.textContent = input.validationMessage;
 }
 
-// Функция скроет ошибку под полем.
 function hideError(input, form, config) {
     const errorElement = form.querySelector(`#${input.id}-error`);
     input.classList.remove(config.inputErrorClass);
     errorElement.textContent = '';
 }
 
-// Валидация input при открытии попуп, если заранее внесенныe данные.
-function validInput(config) {
-    const inputs = [...document.querySelectorAll('.form__input')];
-    const btn = document.querySelector('.form__btn-close');
-    inputs.forEach((input) => {
-        if (input = '') {
-            btn.disabled = true;
-            btn.classList.add(config.inactiveButtonClass);
-        } else {
-            btn.disabled = false;
-            btn.classList.remove(config.inactiveButtonClass);
-        }
+function hideErrors(parent) {
+    const inputs = parent.querySelectorAll('form__input');
+    const form = parent.querySelector('form');
+    inputs.forEach(input => {
+        hideError(input, form, config);
     });
 }
