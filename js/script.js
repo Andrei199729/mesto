@@ -84,7 +84,7 @@ function openEditprofile() {
     nameInput.value = profileTitle.textContent;
     jobInput.value = profileSubtitle.textContent;
     btn.classList.remove('popup__button_disabled');
-    btn.disabled = false;
+    btn.removeAttribute('disabled', false);
     hideErrors(popupEditProfile);
 }
 popupEditProfileBtn.addEventListener('click', openEditprofile);
@@ -120,7 +120,7 @@ function addCardSubmit(evt) {
     appendCard(card);
     closePopup(popupAddCard);
     evt.target.reset();
-    closeBtnCard.disabled = true;
+    closeBtnCard.setAttribute('disabled', true);;
     closeBtnCard.classList.add('popup__button_disabled');
 }
 formCard.addEventListener('submit', addCardSubmit);

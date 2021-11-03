@@ -6,10 +6,10 @@ function enableValidation(validationConfig) {
 
 // Работа поля валидации
 function setFormListener(form, config) {
-    form.addEventListener('submit', handleSubmit);
-    form.addEventListener('input', () => setSubmitButtonState(form, config));
     const inputs = [...form.querySelectorAll(config.inputSelector)];
     const button = form.querySelector(config.submitButtonSelector);
+    form.addEventListener('submit', handleSubmit);
+    form.addEventListener('input', () => setSubmitButtonState(form, config, button));
     inputs.forEach((inputElement) => {
         inputElement.addEventListener('input', () => handleFieldValidation(inputElement, form, config));
     });
