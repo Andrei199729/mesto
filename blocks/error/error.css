@@ -11,3 +11,10 @@
     font-size: 12px;
     line-height: 12px;
 }
+
+@media screen and (max-width: 615px) {
+    .error {
+        top: 151px;
+        left: 22px;
+    }
+}
