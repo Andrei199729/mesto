@@ -21,12 +21,10 @@ const jobInput = formEdit.elements.job;
 const formCard = document.forms.formcard;
 const cardNameInput = formCard.elements.card;
 const linkInput = formCard.elements.link;
-const btn = document.querySelector('.form__btn-close');
-const closeBtnCard = document.querySelector('.form__btn-close-card');
 
 // При загрузке плавное открытие и закрытие
 window.addEventListener('load', () => {
-    document.querySelectorAll('.popup').forEach((popup) => popup.classList.add('popup_transition'));
+    popups.forEach((popup) => popup.classList.add('popup_transition'));
 });
 
 // Закрытие оверлей
@@ -67,6 +65,11 @@ function closePopupAddCard() {
 }
 popupCloseAddCard.addEventListener('click', closePopupAddCard);
 
+// Закрытие popup увеличенных изображений 
+function closePopupViewImage() { 
+    closePopup(popupViewImage); 
+} 
+popupCloseViewImageBtn.addEventListener('click', closePopupViewImage); 
 
 // Открытие popup
 function openPopup(popup) {
@@ -80,15 +83,14 @@ function openEditprofile() {
     openPopup(popupEditProfile);
     nameInput.value = profileTitle.textContent;
     jobInput.value = profileSubtitle.textContent;
-    btn.classList.remove('popup__button_disabled');
-    btn.removeAttribute('disabled', false);
-    formValidatorEdit.hideErrors(popupEditProfile);
+    formValidatorEdit.resetValidation(popupEditProfile);
 }
 popupEditProfileBtn.addEventListener('click', openEditprofile);
 
 // Открытие popup добаавления карточек
 function openPopupAddCard() {
     openPopup(popupAddCard);
+    formValidatorCard.resetValidation(popupAddCard);
 }
 popupAddCardBtn.addEventListener('click', openPopupAddCard);
 
@@ -106,11 +108,10 @@ function addCardSubmit(evt) {
     const link = linkInput.value;
     const name = cardNameInput.value;
     const card = { name, link };
-    appendCard(card);
+    const newCard = createCard(card);
+    prependCard(newCard);
     closePopup(popupAddCard);
     evt.target.reset();
-    closeBtnCard.setAttribute('disabled', true);;
-    closeBtnCard.classList.add('popup__button_disabled');
 }
 formCard.addEventListener('submit', addCardSubmit);
 
@@ -146,17 +147,24 @@ const config = {
     inputErrorClass: 'form__input_type_error',
     errorClass: 'popup__error_visible',
     viewImagePicture,
-    popupCloseViewImageBtn,
     viewCaption,
-    popupViewImage
+    popupViewImage,
 };
 
-function appendCard(item) {
+function createCard(item) {
     const card = new Card(config, item, templateCard, openPopup, closePopup);
     const cardElement = card.generateCard();
-    elements.prepend(cardElement);
+    return cardElement;
 }
-initialCards.forEach(appendCard);
+
+function prependCard(card) {
+    elements.prepend(card);
+}
+
+initialCards.forEach((item) => {
+    const card = createCard(item);
+    prependCard(card);
+});
 
 const formValidatorEdit = new FormValidator(config, formEdit);
 formValidatorEdit.enableValidation();
