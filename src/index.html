@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 
 <body class="page">
     <!-- Header -->
     <header class="header">
-        <img class="header__logo" src="./images/mestologo.svg" alt="Место">
+        <img class="header__logo" src="<%=require('./images/mestologo.svg')%>" alt="Место">
     </header>
     <!-- /Header -->
     <main class="content">
         <!-- Profile -->
         <section class="profile">
-            <img class="profile__avatar" src="./images/jakkusto.jpg" alt="Аватар пользователя">
+            <img class="profile__avatar" src="<%=require('./images/jakkusto.jpg')%>" alt="Аватар пользователя">
             <div class="profile__columns">
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -90,7 +89,6 @@
             </div>
         </article>
     </template>
-    <script type="module" src="./js/script.js"></script>
 </body>
 
 </html>
