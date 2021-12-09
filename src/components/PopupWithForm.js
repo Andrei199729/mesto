@@ -1,35 +1,48 @@
 import Popup from "./Popup.js";
 
 class PopupWithForm extends Popup {
-    constructor(config, selectorPopup, { formSubmit }) {
-        super(selectorPopup),
+    constructor(config, popupSelector, { formSubmit }, retreiveData = null) {
+        super(popupSelector),
             this._config = config,
             this._formSubmit = formSubmit,
-            this._form = selectorPopup.querySelector(this._config.formSelector)
+            this._form = this._popup.querySelector(this._config.formSelector),
+            this._inputList = [...this._form.querySelectorAll(this._config.inputSelector)],
+            this._submitForm = this._submitForm.bind(this),
+            this._handleRetreive = retreiveData
     }
 
-    reset() {
+    open = () => {
+        if (this._handleRetreive) {
+            const data = this._handleRetreive();
+            this._inputList.forEach((input) => {
+                input.value = data[input.name];
+            });
+        }
+        super.open();
+    }
+
+    close() {
+        super.close()
         this._form.reset();
     }
 
-    _getInputValues(event) {
-        event.preventDefault();
-        const allInput = [...this._form.querySelectorAll(this._config.inputSelector)];
-        allInput.reduce((accum, input) => {
-            accum[input.name] = input.value;
-            return accum;
-        }, {});
-        super.close();
+    _getInputValues() {
+        const dataInputsValue = {};
+        this._inputList.forEach((input) => {
+            dataInputsValue[input.name] = input.value;
+        });
+        return dataInputsValue;
     }
 
-    _submitForm() {
-        this._formSubmit();
+    _submitForm(evt) {
+        evt.preventDefault();
+        this._formSubmit(this._getInputValues());
+        this.close();
     }
 
     setEventListeners() {
         super.setEventListeners();
-        this._form.addEventListener('submit', (event) => this._getInputValues(event));
-        this._form.addEventListener('submit', () => this._submitForm());
+        this._form.addEventListener('submit', (evt) => this._submitForm(evt));
     }
 }
 

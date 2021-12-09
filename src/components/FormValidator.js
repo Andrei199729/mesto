@@ -14,15 +14,15 @@ class FormValidator {
     // Работа поля валидации
     _setFormListener() {
         this._formName.addEventListener('submit', (evt) => this._handleSubmit(evt));
-        this._formName.addEventListener('input', () => this.disableSubmitButton());
+        this._formName.addEventListener('input', () => this.toggleSubmitButton());
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => this._handleFieldValidation(inputElement));
         });
-        this.disableSubmitButton();
+        this.toggleSubmitButton();
     }
 
     // Проверка submit, если input валидны или нет.
-    disableSubmitButton() {
+    toggleSubmitButton() {
         this._submitButton.disabled = !this._formName.checkValidity();
         this._submitButton.classList.toggle(this._config.inactiveButtonClass, !this._formName.checkValidity());
     }
@@ -54,13 +54,18 @@ class FormValidator {
         errorElement.textContent = '';
     }
 
+    addSubmitButton() {
+        this._submitButton.disabled = true;
+        this._submitButton.classList.add(this._config.inactiveButtonClass);
+    }
+
     resetValidation() {
-        this.disableSubmitButton();
+        this.toggleSubmitButton();
         this._inputList.forEach((inputElement) => {
-          this._hideInputError(inputElement);
+            this._hideInputError(inputElement);
         });
-  
-      }
+
+    }
 }
 
 export default FormValidator;

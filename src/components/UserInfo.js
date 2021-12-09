@@ -1,15 +1,17 @@
 class UserInfo {
-    constructor(name, job) {
-        this._name = name,
-            this._job = job
+    constructor(nameSelector, aboutSelector) {
+        this._nameSelector = document.querySelector(nameSelector),
+            this._aboutSelector = document.querySelector(aboutSelector)
     }
-    getUserInfo(name, job) {
-        this._name.value = name.textContent;
-        this._job.value = job.textContent;
+
+    getUserInfo() {
+        const data = { name: this._nameSelector.textContent, about: this._aboutSelector.textContent };
+        return data;
     }
-    setUserInfo(name, job) {
-        this._name.textContent = name.value;
-        this._job.textContent = job.value;
+
+    setUserInfo(name, about) {
+        this._nameSelector.textContent = name;
+        this._aboutSelector.textContent = about;
     }
 }
 
