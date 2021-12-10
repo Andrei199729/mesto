@@ -8,15 +8,7 @@ import UserInfo from '../components/UserInfo.js';
 import {
     popups, initialCards, nameInput, jobInput, formEdit, formCard, templateCard, popupEditProfileBtn, popupAddCardBtn
 } from '../utils/constants.js';
-
-const config = {
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__btn',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: 'popup__error_visible'
-};
+import { config } from '../utils/constants.js';
 
 // При загрузке плавное открытие и закрытие
 window.addEventListener('load', () => {
@@ -26,7 +18,7 @@ window.addEventListener('load', () => {
 const popupWithImage = new PopupWithImage('.popup_view-image');
 
 const section = new Section({
-    items: initialCards, renderer: createCard
+    items: initialCards, renderer: (input) => section.addItem(createCard(input.name, input.link))
 }, '.elements');
 
 // Класс UserInfo отвечает за управление отображением информации о пользователе на странице. 
@@ -39,12 +31,7 @@ const formValidatorCard = new FormValidator(config, formCard);
 formValidatorCard.enableValidation();
 section.rendererItem();
 
-function createCard(item) {
-    const card = new Card(config, item, templateCard, popupWithImage.open);
-    const cardElement = card.generateCard();
-    section.addItem(cardElement);
-    return section;
-}
+
 popupWithImage.setEventListeners();
 
 // Открытие popup редактирования профиля
@@ -76,11 +63,21 @@ editProfileSubmit.setEventListeners();
 // Добавление карточек
 const addCardSubmit = new PopupWithForm(config, '.popup_add-card', {
     formSubmit: (input) => {
-        createCard({ name: input.card, link: input.link });
+        submitHandlerCard(input);
     }
 });
 addCardSubmit.setEventListeners();
 
 function submitHandler(input) {
     userInfo.setUserInfo(input.nametype, input.job);
+}
+
+function submitHandlerCard(input) {
+    section.addItem(createCard(input.card, input.link));
+}
+
+function createCard(name, link) {
+    const cardCreate = new Card(config, { name, link }, templateCard, popupWithImage.open);
+    const cardElement = cardCreate.generateCard();
+    return cardElement;
 }

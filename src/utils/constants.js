@@ -28,3 +28,12 @@ export const initialCards = [{
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
 }];
+
+export const config = {
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__btn',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: 'popup__error_visible'
+};
