@@ -1,0 +1,16 @@
+.edit__pencile {
+    display: none;
+    width: 26px;
+    height: 26px;
+    background-image: url('../../../images/editavatar.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    position: relative;
+    left: 46px;
+    bottom: 76px;
+    transition: opacity .2s linear;
+}
+
+.edit__pencile:hover {
+    cursor: pointer;
+}

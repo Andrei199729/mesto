@@ -9,9 +9,14 @@ class UserInfo {
         return data;
     }
 
-    setUserInfo(name, about) {
-        this._name.textContent = name;
-        this._about.textContent = about;
+    get ID() {
+        return this.id;
+    }
+
+    setUserInfo(data) {
+        this._name.textContent = data.name;
+        this._about.textContent = data.about;
+        this.id = data._id;
     }
 }
 

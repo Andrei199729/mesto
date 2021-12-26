@@ -16,7 +16,10 @@
     <main class="content">
         <!-- Profile -->
         <section class="profile">
-            <img class="profile__avatar" src="<%=require('./images/jakkusto.jpg')%>" alt="Аватар пользователя">
+            <div class="profile__edit-avatar">
+                <img class="profile__avatar" src="<%=require('./images/jakkusto.jpg')%>" alt="Аватар пользователя">
+                <span class="edit__pencile"></span>
+            </div>
             <div class="profile__columns">
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -42,14 +45,14 @@
     <div class="popup popup_edit-profile">
         <div class="popup__container">
             <button class="popup__close-btn popup__close-btn-edit" type="button"></button>
-            <form class="form form_edit-profile" action="/" method="POST" name="formprofile">
+            <form class="form form_edit-profile" action="/" method="PATCH" name="formprofile">
                 <h2 class="form__title">Редактировать профиль</h2>
                 <div class="form__column">
                     <input class="form__input form__input_type_name" id="name" type="text" name="nametype" placeholder="Введите ваше имя" minlength="2" maxlength="40" required>
                     <span class="error" id="name-error"></span>
                     <input class=" form__input form__input_type_job" type="text" id="job" name="job" placeholder="Введите вашу профессию" minlength="2" maxlength="200" required>
                     <span class="error error_below" id="job-error"></span>
-                    <button class="form__btn form__btn-close" type="submit">Сохранить</button>
+                    <button class="form__btn form__btn-close-edit" type="submit">Сохранить</button>
                 </div>
             </form>
         </div>
@@ -58,7 +61,7 @@
     <div class="popup popup_add-card">
         <div class="popup__container">
             <button class="popup__close-btn popup__close-btn-add" type="button"></button>
-            <form class="form form_card-add" action="/" method="GET" name="formcard">
+            <form class="form form_card-add" action="/" method="POST" name="formcard">
                 <h2 class="form__title">Новое место</h2>
                 <div class="form__column">
                     <input class="form__input form__input_card_name" type="text" id="card" name="card" placeholder="Название" minlength="2" maxlength="30" required>
@@ -78,6 +81,32 @@
             <figcaption class="view-image__caption"></figcaption>
         </figure>
     </div>
+    <!-- Modal delete -->
+    <div class="popup popup_delete">
+        <div class="popup__container-delete">
+            <button class="popup__close-btn popup__close-btn-delete" type="button"></button>
+            <form class="form form_card-delete" action="/" method="DELETE" name="formcarddelete">
+                <div>
+                    <h2 class="popup__title-delete">Вы уверены?</h2>
+                    <button class="popup__delete-btn popup__delete-btn-close" type="submit">Да</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal avatar -->
+    <div class="popup popup_avatar">
+        <div class="popup__container-avatar">
+            <button class="popup__close-btn popup__close-btn-delete" type="button"></button>
+            <form class="form form_edit-avatar" action="/" method="PATCH" name="formavatar">
+                <h2 class="form__title">Обновить аватар</h2>
+                <div class="form__column">
+                    <input class="form__input form__input_link_avatar" type="url" id="avatar" name="avatar" placeholder="Ссылка на аватар" required>
+                    <span class="error error_below-avatar" id="avatar-error"></span>
+                    <button class="form__btn form__btn-close-avatar" type="submit">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <!-- /View photo -->
     <template id="card-template">
         <article class="element">
@@ -85,7 +114,10 @@
             <button class="element__delete"></button>
             <div class="element__text">
                 <h2 class="element__title"></h2>
-                <button class="element__btn" type="button"></button>
+                <div>
+                    <button class="element__btn" type="button"></button>
+                    <p class="element__check"></p>
+                </div>
             </div>
         </article>
     </template>

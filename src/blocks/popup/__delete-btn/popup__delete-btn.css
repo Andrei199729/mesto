@@ -1,7 +1,5 @@
-.form__btn {
-    display: block;
-    margin-top: 18px;
-    max-width: 358px;
+.popup__delete-btn {
+    width: 100%;
     min-height: 50px;
     background-color: #000000;
     border-radius: 2px;
@@ -18,14 +16,13 @@
     transition: opacity .3s linear;
 }
 
-.form__btn:hover {
+.popup__delete-btn:hover {
     opacity: 0.8;
     cursor: pointer;
 }
 
 @media screen and (max-width: 615px) {
-    .form__btn {
-        margin-top: 15px;
+    .popup__delete-btn {
         max-width: 100%;
         min-height: 46px;
         font-size: 14px;
