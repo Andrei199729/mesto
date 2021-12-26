@@ -1,6 +1,6 @@
 class AvatarEdit {
     constructor(avatar) {
-        this._avatar = document.querySelector(avatar);
+        this._avatar = document.querySelector(avatar)
     }
 
     setAvatar(link) {
