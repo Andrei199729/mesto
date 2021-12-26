@@ -33,6 +33,7 @@ Promise.all([api.aboutUser(), api.getInitialCards()])
         avatarEdit.setAvatar(user.avatar);
         section.rendererItem(cards, user._id);
     })
+
 const popupWithImage = new PopupWithImage('.popup_view-image');
 
 const section = new Section({
@@ -46,8 +47,10 @@ const avatarEdit = new AvatarEdit('.profile__avatar');
 // Валидация
 const formValidatorEdit = new FormValidator(config, formEdit);
 formValidatorEdit.enableValidation();
+
 const formValidatorCard = new FormValidator(config, formCard);
 formValidatorCard.enableValidation();
+
 const formValidatorEditAvatar = new FormValidator(config, formEditAvatar);
 formValidatorEditAvatar.enableValidation();
 
@@ -62,6 +65,7 @@ function openEditprofile() {
     nameInput.value = getUserInfo.name;
     jobInput.value = getUserInfo.about;
 }
+
 popupEditProfileBtn.addEventListener('click', openEditprofile);
 
 // Открытие popup добавления карточек
@@ -69,6 +73,7 @@ function openPopupAddCard() {
     addCardSubmit.open();
     formValidatorCard.resetValidation();
 }
+
 popupAddCardBtn.addEventListener('click', openPopupAddCard);
 
 // Открытие popup Avatar
@@ -76,6 +81,7 @@ function openPopupEditAvatar() {
     editAvatarSubmit.open();
     formValidatorEditAvatar.resetValidation();
 }
+
 popupEditAvatar.addEventListener('click', openPopupEditAvatar);
 
 // Редактирование данных пользователя
@@ -93,6 +99,7 @@ const editProfileSubmit = new PopupWithForm(config, '.popup_edit-profile', {
             })
     }
 });
+
 editProfileSubmit.setEventListeners();
 
 // Добавление карточек
@@ -109,6 +116,7 @@ const addCardSubmit = new PopupWithForm(config, '.popup_add-card', {
             })
     }
 });
+
 addCardSubmit.setEventListeners();
 
 function submitHandlerCard(data, userID) {
@@ -128,6 +136,7 @@ const editAvatarSubmit = new PopupWithForm(config, '.popup_avatar', {
             })
     }
 });
+
 editAvatarSubmit.setEventListeners();
 
 function submitHandler(input) {
@@ -160,6 +169,7 @@ function deleteCardApi(data) {
 function openPopupDelete(data) {
     popupWithDelete.open(data);
 }
+
 // Лайк карточек
 function handleLikeClick(card) {
     if (card.isLiked()) {
