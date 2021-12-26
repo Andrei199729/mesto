@@ -2,7 +2,9 @@
 class Card {
     constructor(config, item, template, openViewPopup, userID, { openPopupDelete }, handleClickLikes) {
         this._item = item,
+            this._likes = this._item.likes,
             this._config = config,
+            this._userID = userID,
             this._view = template.querySelector('.element').cloneNode(true),
             this._cardImage = this._view.querySelector('.element__image'),
             this._cardTitle = this._view.querySelector('.element__title'),
@@ -10,10 +12,8 @@ class Card {
             this._elementLikeBtn = this._view.querySelector('.element__btn'),
             this._elementCheck = this._view.querySelector('.element__check'),
             this._openPopup = openViewPopup,
-            this._userID = userID,
             this._openPopupDelete = openPopupDelete,
             this._handleClickLikes = handleClickLikes,
-            this._likes = this._item.likes,
             this._popupDeleteBtn = document.querySelector('.popup__delete-btn-close'),
             this._handleCardClick = this._handleCardClick.bind(this)
     }
