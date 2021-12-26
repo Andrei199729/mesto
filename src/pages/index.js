@@ -4,7 +4,7 @@ import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
-import PopupWithDelete from '../components/PopupWithDelete.js';
+import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 import UserInfo from '../components/UserInfo.js';
 import {
     popups, initialCards, nameInput, jobInput, formEdit, formCard, templateCard, popupEditProfileBtn, popupAddCardBtn, popupEditAvatar, formEditAvatar,
@@ -24,7 +24,7 @@ const api = new Api({
     token: 'f0863dcb-641a-48c7-ae1b-e19e122bd627'
 });
 
-const popupWithDelete = new PopupWithDelete('.popup_delete', deleteCardApi);
+const popupWithDelete = new PopupWithConfirmation('.popup_delete', deleteCardApi);
 popupWithDelete.setEventListeners();
 
 Promise.all([api.aboutUser(), api.getInitialCards()])

@@ -1,6 +1,6 @@
 import Popup from "./Popup";
 
-class PopupWithDelete extends Popup {
+class PopupWithConfirmation extends Popup {
     constructor(popupSelector, handleConfirm) {
         super(popupSelector),
             this._confirmForm = document.forms.formcarddelete,
@@ -40,5 +40,4 @@ class PopupWithDelete extends Popup {
     }
 }
 
-export default PopupWithDelete;
-// И кстати ты сейчас очень легко можешь сделать UXфикацию этого попапа - тебе надо дописать два простых приватных метода: _setSave() { this._submitButton.textContent = 'Удаляю…'; } и _resetSave() { this._submitButton.textContent = 'Да'; },   и добавить их вызовы: _setSave() в _handlesubmit(evt) перед вызовом  _handleConfirm(data), а _resetSave() - в open() перед вызовом super.open()
+export default PopupWithConfirmation;
