@@ -20,7 +20,7 @@
 @import url(../blocks/profile/__columns/profile__columns.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__edit-avatar/profile__edit-avatar.css);
-@import url(../blocks/profile/__pencile/edit__pencile.css);
+@import url(../blocks/profile/__edit-pencile/profile__edit-pencile.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__edit-btn/profile__edit-btn.css);
 @import url(../blocks/profile/__add-card-btn/profile__add-card-btn.css);
