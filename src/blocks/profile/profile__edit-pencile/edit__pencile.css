@@ -1,4 +1,4 @@
-.edit__pencile {
+.profile__edit-pencile {
     display: none;
     width: 26px;
     height: 26px;
@@ -11,6 +11,6 @@
     transition: opacity .2s linear;
 }
 
-.edit__pencile:hover {
+.profile__edit-pencile:hover {
     cursor: pointer;
 }
