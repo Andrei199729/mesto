@@ -10,9 +10,7 @@ import {
     popups, initialCards, nameInput, jobInput, formEdit, formCard, templateCard, popupEditProfileBtn, popupAddCardBtn, popupEditAvatar, formEditAvatar,
 } from '../utils/constants.js';
 import { config } from '../utils/constants.js';
-import Api from '../components/Api';
-import AvatarEdit from '../components/AvatarEdit';
-
+import Api from '../components/Api.js';
 // При загрузке плавное открытие и закрытие
 window.addEventListener('load', () => {
     popups.forEach((popup) => popup.classList.add('popup_transition'));
@@ -30,9 +28,10 @@ popupWithDelete.setEventListeners();
 Promise.all([api.aboutUser(), api.getInitialCards()])
     .then(([user, cards]) => {
         userInfo.setUserInfo(user);
-        avatarEdit.setAvatar(user.avatar);
+        userInfo.setUserAvatar(user.avatar);
         section.rendererItem(cards, user._id);
     })
+    .catch(err => console.log(err))
 
 const popupWithImage = new PopupWithImage('.popup_view-image');
 
@@ -41,8 +40,7 @@ const section = new Section({
 }, '.elements');
 
 // Класс UserInfo отвечает за управление отображением информации о пользователе на странице. 
-const userInfo = new UserInfo('.profile__title', '.profile__subtitle');
-const avatarEdit = new AvatarEdit('.profile__avatar');
+const userInfo = new UserInfo('.profile__title', '.profile__subtitle', '.profile__avatar');
 
 // Валидация
 const formValidatorEdit = new FormValidator(config, formEdit);
@@ -92,11 +90,8 @@ const editProfileSubmit = new PopupWithForm(config, '.popup_edit-profile', {
             name: userInfo.getUserInfo().name,
             about: userInfo.getUserInfo().about
         })
-            .then(result => userInfo.setUserInfo(result))
+            .then(result => userInfo.setUserInfo(result), editProfileSubmit.close())
             .catch(err => console.log(err))
-            .finally(() => {
-                editProfileSubmit.close();
-            })
     }
 });
 
@@ -109,11 +104,8 @@ const addCardSubmit = new PopupWithForm(config, '.popup_add-card', {
             name: input.card,
             link: input.link
         })
-            .then(result => submitHandlerCard(result, userInfo.ID))
+            .then(result => submitHandlerCard(result, userInfo.ID), addCardSubmit.close())
             .catch(err => console.log(err))
-            .finally(() => {
-                addCardSubmit.close()
-            })
     }
 });
 
@@ -129,11 +121,8 @@ const editAvatarSubmit = new PopupWithForm(config, '.popup_avatar', {
         api.updateAvatar({
             link: input.avatar
         })
-            .then(result => submitHandlerAvatar(result))
+            .then(result => submitHandlerAvatar(result), editAvatarSubmit.close())
             .catch(err => console.log(err))
-            .finally(() => {
-                editAvatarSubmit.close()
-            })
     }
 });
 
@@ -145,7 +134,7 @@ function submitHandler(input) {
 }
 
 function submitHandlerAvatar(input) {
-    avatarEdit.setAvatar(input.avatar);
+    userInfo.setUserAvatar(input.avatar);
 }
 
 function createCard(card, userID) {
@@ -158,11 +147,9 @@ function createCard(card, userID) {
 function deleteCardApi(data) {
     const { id, cleanup } = data;
     api.deleteCard(id)
-        .then(() => cleanup())
+        .then(() => cleanup(), popupWithDelete.close())
         .catch(err => console.log(err))
-        .finally(() => {
-            popupWithDelete.close()
-        })
+    1
 }
 
 // Открытие попапа

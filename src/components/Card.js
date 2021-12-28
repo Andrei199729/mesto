@@ -23,11 +23,7 @@ class Card {
         this._cardImage.alt = this._item.name;
         this._cardTitle.textContent = this._item.name;
         this._elementCheck.textContent = this._likes.length;
-        if (this._userID === this._item.owner._id) {
-            this._delButton;
-        } else {
-            this._delButton.remove();
-        }
+        this._delButton.classList.add(this._userID === this._item.owner._id ? 'element__delete-button_visible' : 'element__delete-button_hidden');
         this._updateLikes();
         this._setEventListeners();
         return this._view;
@@ -57,6 +53,7 @@ class Card {
 
     removeCard = () => {
         this._view.remove();
+        this._view = null;
     }
 
     _setEventListeners() {
