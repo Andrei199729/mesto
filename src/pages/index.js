@@ -11,6 +11,7 @@ import {
 } from '../utils/constants.js';
 import { config } from '../utils/constants.js';
 import Api from '../components/Api.js';
+
 // При загрузке плавное открытие и закрытие
 window.addEventListener('load', () => {
     popups.forEach((popup) => popup.classList.add('popup_transition'));
